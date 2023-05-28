@@ -64,7 +64,54 @@ body{
     }
 }
 /* ================================== */
-
+.simple-raiting {
+    position: relative;
+    font-size: 40px;
+    display: inline-block;
+}
+.simple-raiting::before{
+    content: "★★★★★";
+    display: block;
+}
+.simple-raiting__items {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+.simple-raiting__item {
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+}
+.simple-raiting__label {
+    flex: 0 0 20%;
+    height: 100%;
+    cursor: pointer;
+    color: #ffd300;
+}
+.simple-raiting__label::before{
+    content: "★";
+    display: block;
+    transition: color 0.3s ease 0s;
+}
+.simple-raiting__item:checked,
+.simple-raiting__item:checked ~ .simple-raiting__label{
+    color: #FBB040;
+}
+.simple-raiting__label:hover,
+.simple-raiting__label:hover ~ .simple-raiting__label,
+.simple-raiting__label:checked ~ .simple-raiting__label:hover{
+    color:#d09336;
+}
 /* ================================== */
 .page{
     flex: 1 1 auto;
